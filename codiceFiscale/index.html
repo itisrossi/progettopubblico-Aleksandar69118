@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="code/codiceFiscale.js">
+		</script>
+	</head>
+	<body>
+		<h2>Calcolatore codice fiscale</h2>
+		<form>
+			<label for="cognome">Inserisci cognome</label><br>
+			<input type="text" id="cognome" name="cognome"><br>
+			<label for="nome">Inserisci nome</label><br>
+			<input type="text" id="nome" name="nome"><br>
+			<label for="luogon">Inserisci codice belfiore del comune</label><br>
+			<input type="text" id="luogon" name="luogon"><br>
+			<label for="sesso">Inserisci sesso (di default è maschio)</label><br>
+			<input type="radio" id="sesso" name="sesso" value="M">Maschio
+  			<input type="radio" id="sesso" name="sesso" value="F">Femmina
+			<br>
+			<label for="datanascita">Inserisci data di nascita</label><br>
+			<input type="date" id="datanascita" name="datanascita"><br><br>
+			<button type="button" onclick="codiceFisc()">Calcola il tuo codice fiscale</button><br>
+		</form>
+		<p id="codice">super ciaone</p>
+	</body>
+</html>
