@@ -38,7 +38,6 @@ function perCognome(cognome) {
     if (risultato.length == 2) {
       return risultato + "X";
     }
-    return risultato;
 }
 
 function perNome(nome) {
@@ -75,7 +74,7 @@ function vocali(parola) {
     const consonanti = ["Q", "W", "R", "T", "P", "S", "D", "F", "G", "H", "Y", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
     for (let i = 0; i < parola.length; i++) {
       let lettera = parola[i];
-      if (lettera >= "A" && lettera <= "Z" && !vocali.includes(lettera)) {
+      if (lettera >= "A" && lettera <= "Z" && !consonanti.includes(lettera)) {
         vocali.push(lettera);
       }
     }
