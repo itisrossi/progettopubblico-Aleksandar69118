@@ -1,0 +1,77 @@
+div.pallaverde {
+    display:inline-block;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    cursor: pointer;
+    background: #73AD21;
+    padding: 15px; 
+    width: 15px;
+    height: 15px;
+}
+div.pallablu {
+    display:inline-block;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    cursor: pointer;
+    background: #1313d4;
+    padding: 15px; 
+    width: 15px;
+    height: 15px;
+}
+div.pallarancio {
+    display:inline-block;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    cursor: pointer;
+    background: #d18512;
+    padding: 15px; 
+    width: 15px;
+    height: 15px;
+}
+div.pallanera {
+    display:inline-block;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    cursor: pointer;
+    background: #000000;
+    padding: 15px; 
+    width: 15px;
+    height: 15px;
+}
+div.pallaviola {
+    display:inline-block;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    cursor: pointer;
+    background: #6b0cd6;
+    padding: 15px; 
+    width: 15px;
+    height: 15px;
+}
+div.pallarossa {
+    display:inline-block;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    cursor: pointer;
+    background: #c51010;
+    padding: 15px; 
+    width: 15px;
+    height: 15px;
+}
+div.palla {
+    display:inline-block;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    cursor: pointer;
+    background: #FFF;
+    padding: 15px; 
+    width: 15px;
+    height: 15px;
+}
