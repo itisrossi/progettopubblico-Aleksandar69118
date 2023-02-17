@@ -94,12 +94,12 @@ function codiceControllo(codice) {
     const tabD = [1, 0, 5, 7, 9, 13, 15, 17, 19, 21, 2, 4, 18, 20, 11, 3, 6, 8, 12, 14, 16, 10, 22, 25, 24, 23];
     const tabE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let somma = 0;
-    let i = 0;
     let posizione = 0;
-    for (i=0; i < codice.length ; i++){
+    for (let i = 0; i < codice.length ; i++){
         let carattere = codice[i];
         posizione = tabE.indexOf(carattere);
-        if (posizione > 25){posizione -= 26;
+        if (posizione > 25){
+            posizione -= 26;
         }
         if ((i + 1) %2 == 0){
             somma += tabC[posizione];
@@ -108,9 +108,7 @@ function codiceControllo(codice) {
             somma += tabD[posizione];
         }
     }
-let resto = somma % 26;
-controllo = tabE[resto];
-return controllo;
+    return tabE[somma % 26];
 }
 
 function perComune(comune) {
