@@ -73,14 +73,21 @@ function conta() {
     else
         t++;
 }
-let p = 0;
+
 function controllo() {
-    for (let i in obiettivo) {
-        if(tentativo[i] == obiettivo[i])
+    let p = 0, np = 0;
+    for (let i in obiettivo){
+        if (tentativo.indexOf(obiettivo[i]) == i)
             p++;
+        else if (obiettivo.includes(tentativo[i]))
+            np++;
     }
+    alert(p);
+    alert(np);
     if(p == 4)
         document.getElementById("sper").innerHTML = "supercioanefef";
-    else
+    else{
         p = 0;
+        np = 0;
+    }
 }
