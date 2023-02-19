@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="superciaone">superciaone</p>
+<p id="vettori">Il tuo vettore ordinato è: (clicca pulsante)</p>
+<button type="button" onclick="funzione()">Sortisci il tuo vettore</button>
+<script>
+    let v = [];
+    for (let i = 0; i <= 6; i++){
+        v[i] = Number(prompt("inserisci numero del vettore"));
+    }
+    document.getElementById("superciaone").innerHTML = "Il tuo vettore è: " + v;
+    function funzione() {
+        sort(v);
+        document.getElementById("vettori").innerHTML = "Il tuo vettore ordinato è: " + v;
+    }
+    function sort(v) {
+        ((v.sort(function(a, b) {return a - b;})));
+    }
+</script>
+</body>
+</html>
