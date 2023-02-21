@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+
+<body>
+    <p id="superciaone">superciaone</p>
+    <script>
+        let vettore = [];
+        for (let i = 0; i <= 9; i++){
+            vettore[i] = Number(prompt("Inserisci numero in posizione " + i.toString() + " del vettore"));
+            while (vettore[i] == "")
+                vettore[i] = prompt("Non hai inserito nulla: inserisci di nuovo un numero");
+        }
+
+        function scambia(v, sinistra, destra) {
+            let a = v[sinistra];
+            v[sinistra] = v[destra];
+            v[destra] = a;
+        }
+
+        function partition(v, sinistra, destra) {
+            let pivot = v[Math.floor((destra + sinistra) / 2)], i = sinistra, j = destra;
+            while (i <= j) {
+                while (v[i] < pivot) {
+                    i++;
+                }
+                while (v[j] > pivot) {
+                    j--;
+                }
+                if (i <= j) {
+                    scambia(v, i, j);
+                    i++;
+                    j--;
+                }
+            }
+            return i;
+        }
+
+        function quickSort(v, sinistra, destra) {
+            let indice = partition(v, sinistra, destra);
+            if (sinistra < indice - 1) 
+                quickSort(v, sinistra, indice - 1);
+            if (indice < destra) 
+                quickSort(v, indice, destra);
+            return v;
+        }
+        document.getElementById("superciaone").innerHTML = quickSort(vettore, 0, vettore.length - 1);
+    </script>
+</body>
