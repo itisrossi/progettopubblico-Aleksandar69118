@@ -4,7 +4,9 @@
 </head>
 
 <body>
-    <p id="superciaone">superciaone</p>
+    <p id="quickSort">superciaone</p>
+    <p id="mergeSort">superciaone</p>
+    </p>
     <script>
         let vettore = [];
         for (let i = 0; i <= 9; i++){
@@ -45,6 +47,31 @@
                 quickSort(v, indice, destra);
             return v;
         }
-        document.getElementById("superciaone").innerHTML = quickSort(vettore, 0, vettore.length - 1);
+
+        
+        function mergeArrays(leftArray, rightArray) {
+            let array = [];
+            while (leftArray.length && rightArray.length) {
+                if (leftArray[0] < rightArray[0]) {
+                    array.push(leftArray.shift());
+                } else {
+                    array.push(rightArray.shift());
+                }
+            }
+            return [ ...array, ...leftArray, ...rightArray];
+        }
+
+        function mergeSort(array) {
+            const middleIndex = array.length / 2;
+            if(array.length < 2) {
+                return array;
+            }
+            const leftArray = array.splice(0, middleIndex);
+            return mergeArrays(mergeSort(leftArray), mergeSort(array));
+        }
+        array = [...vettore];
+
+        document.getElementById("quickSort").innerHTML = quickSort(vettore, 0, vettore.length - 1);
+        document.getElementById("mergeSort").innerHTML = mergeSort(array);
     </script>
 </body>
