@@ -8,10 +8,8 @@
     <p id="mergeSort">superciaone</p>
     <script>
         let vettore = [];
-        for (let i = 0; i <= 9; i++){
-            vettore[i] = Number(prompt("Inserisci numero in posizione " + i.toString() + " del vettore"));
-            while (vettore[i] == "")
-                vettore[i] = prompt("Non hai inserito nulla: inserisci di nuovo un numero");
+        for (let i = 0; i <= 49; i++){
+            vettore[i] = Math.floor(Math.random() * 1000);
         }
 
         function scambia(v, sinistra, destra) {
@@ -69,8 +67,17 @@
             return mergeArrays(mergeSort(leftArray), mergeSort(array));
         }
         array = [...vettore];
+        let a = performance.now();
+        vettore = quickSort(vettore, 0, vettore.length - 1);
+        let b = performance.now() - a;
 
-        document.getElementById("quickSort").innerHTML = quickSort(vettore, 0, vettore.length - 1);
-        document.getElementById("mergeSort").innerHTML = mergeSort(array);
+        a = 0;
+
+        a = performance.now();
+        array = mergeSort(array);
+        let c = performance.now() - a;
+
+        document.getElementById("quickSort").innerHTML = "Vettore sortito con quickSort: " + vettore + "<br>" + " Tempo di esecuzione: " + b;
+        document.getElementById("mergeSort").innerHTML = "Vettore sortito con mergeSort: " + array + "<br>" + " Tempo di esecuzione: " + c;
     </script>
 </body>
