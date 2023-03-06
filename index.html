@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            let n = Number(prompt("inserisci numero"));
+            let matrix = [];
+            function superciaone(n) {
+                const size = 2*n - 1;
+                for (let i = 0; i < size; i++) {
+                    matrix.push([]);
+                    for (let j = 0; j < size; j++) {
+                        matrix[i].push(0);
+                    }
+                }
+                let contatore = n;
+                for (let i = 0; i < n; i++) {
+                    for (let j = i; j < n; j++) {
+                        if (contatore < 10 && n > 9) { 
+                            matrix[i][j] = "0" + contatore;
+                            matrix[j][i] = "0" + contatore;
+                        }
+                        else if (contatore < 100 && n > 99){
+                            matrix[i][j] = "0" + contatore;
+                            matrix[j][i] = "0" + contatore;
+                        }
+                        else {                            
+                            matrix[i][j] = contatore;
+                            matrix[j][i] = contatore;
+                        }
+                    }
+                    contatore--;
+                }
+                let prova = n - 2;
+                for (let i = 0; i < n; i++) {
+                    for (let j = n; j < size; j++) {
+                        let iSpecchiato = size - i - 1;
+                        let jSpecchiato = size - j - 1;
+                        matrix[i][j] = matrix[i][prova];
+                        matrix[j][i] = matrix[prova][i];
+                        matrix[iSpecchiato][j] = matrix[i][j];
+                        matrix[j][jSpecchiato] = matrix[i][j];
+                        prova--;
+                    }
+                    prova = n - 2;
+                }
+                const rows = matrix.map(row => row.join(' ')).join('<br>');
+                document.write(rows);
+            }
+            let a = performance.now();
+            superciaone(n);
+            console.log(performance.now() - a);
+        </script>
+    </head>
+</html>
