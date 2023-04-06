@@ -1,0 +1,6 @@
+C:\Users\aca\source\repos\FrazioniConsole\FrazioniConsole\bin\Debug\FrazioniConsole.exe
+C:\Users\aca\source\repos\FrazioniConsole\FrazioniConsole\bin\Debug\FrazioniConsole.pdb
+C:\Users\aca\source\repos\FrazioniConsole\FrazioniConsole\obj\Debug\FrazioniConsole.csproj.AssemblyReference.cache
+C:\Users\aca\source\repos\FrazioniConsole\FrazioniConsole\obj\Debug\FrazioniConsole.csproj.CoreCompileInputs.cache
+C:\Users\aca\source\repos\FrazioniConsole\FrazioniConsole\obj\Debug\FrazioniConsole.exe
+C:\Users\aca\source\repos\FrazioniConsole\FrazioniConsole\obj\Debug\FrazioniConsole.pdb
