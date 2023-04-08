@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FrazioniConsole
-{
+namespace FrazioniConsole {
     class CFrazione
     {
         private int _num, _den; // usabili solo in questa classe
@@ -60,7 +59,10 @@ namespace FrazioniConsole
                 this.den = Math.Abs(this.den);
                 this.num = -this.num;
             }
-            risultato = this.num.ToString() + "/" + this.den.ToString();
+            else if (this.den == 1)
+                risultato = this.num.ToString();
+            else
+                risultato = this.num.ToString() + "/" + this.den.ToString();
             return risultato;
         }
 
@@ -71,6 +73,7 @@ namespace FrazioniConsole
             ris = new CFrazione();
             ris.den = f1.den * f2.den;
             ris.num = (ris.den / f1.den) * f1.num + (ris.den / f2.den) * f2.num;
+            ris = ris.Semplifica();
             return ris;
         }
 
@@ -94,6 +97,7 @@ namespace FrazioniConsole
             ris = new CFrazione();
             ris.den = f1.den * f2.den;
             ris.num = (ris.den / f1.den) * f1.num - (ris.den / f2.den) * f2.num;
+            ris = ris.Semplifica();
             return ris;
         }
 
@@ -117,6 +121,7 @@ namespace FrazioniConsole
             ris = new CFrazione();
             ris.den = f1.den * f2.den;
             ris.num = f1.num * f2.num;
+            ris = ris.Semplifica();
             return ris;
         }
 
@@ -140,6 +145,7 @@ namespace FrazioniConsole
             f2 = f2.Inverti();
             ris.den = f1.den * f2.den;
             ris.num = f1.num * f2.num;
+            ris = ris.Semplifica();
             return ris;
         }
 
@@ -164,7 +170,7 @@ namespace FrazioniConsole
             return ris;
         }
 
-        public CFrazione Semplifica() // da fare sull'oggetto
+        private CFrazione Semplifica() // da fare sull'oggetto
         {
             CFrazione ris = new CFrazione();
             int temp = MCD(this.num, this.den);
