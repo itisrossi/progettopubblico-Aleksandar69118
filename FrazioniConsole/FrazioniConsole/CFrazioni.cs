@@ -61,6 +61,10 @@ namespace FrazioniConsole {
             }
             else if (this.den == 1)
                 risultato = this.num.ToString();
+            else if (this.num == 0)
+                risultato = "0";
+            else if (this.den == this.num)
+                risultato = this.num.ToString();
             else
                 risultato = this.num.ToString() + "/" + this.den.ToString();
             return risultato;
@@ -70,10 +74,12 @@ namespace FrazioniConsole {
         public static CFrazione Somma(CFrazione f1, CFrazione f2) // static = di classe
         {
             CFrazione ris;
-            ris = new CFrazione();
-            ris.den = f1.den * f2.den;
+            ris = new CFrazione
+            {
+                den = f1.den * f2.den
+            };
             ris.num = (ris.den / f1.den) * f1.num + (ris.den / f2.den) * f2.num;
-            ris = ris.Semplifica();
+            ris.Semplifica();
             return ris;
         }
 
@@ -94,10 +100,12 @@ namespace FrazioniConsole {
         public static CFrazione Sottrazione(CFrazione f1, CFrazione f2) // static = di classe
         {
             CFrazione ris;
-            ris = new CFrazione();
-            ris.den = f1.den * f2.den;
+            ris = new CFrazione
+            {
+                den = f1.den * f2.den
+            };
             ris.num = (ris.den / f1.den) * f1.num - (ris.den / f2.den) * f2.num;
-            ris = ris.Semplifica();
+            ris.Semplifica();
             return ris;
         }
 
@@ -118,10 +126,12 @@ namespace FrazioniConsole {
         public static CFrazione Moltiplicazione(CFrazione f1, CFrazione f2) // static = di classe
         {
             CFrazione ris;
-            ris = new CFrazione();
-            ris.den = f1.den * f2.den;
-            ris.num = f1.num * f2.num;
-            ris = ris.Semplifica();
+            ris = new CFrazione
+            {
+                den = f1.den * f2.den,
+                num = f1.num * f2.num
+            };
+            ris.Semplifica();
             return ris;
         }
 
@@ -141,20 +151,22 @@ namespace FrazioniConsole {
         //Divisione
         public static CFrazione Divisione(CFrazione f1, CFrazione f2) // static = di classe
         {
-            CFrazione ris = new CFrazione();
-            f2 = f2.Inverti();
-            ris.den = f1.den * f2.den;
-            ris.num = f1.num * f2.num;
-            ris = ris.Semplifica();
+
+            f2.Inverti();
+            CFrazione ris = new CFrazione
+            {
+                den = f1.den * f2.den,
+                num = f1.num * f2.num
+            };
+            ris.Semplifica();
             return ris;
         }
 
-        public CFrazione Inverti()
+        public void Inverti()
         {
-            CFrazione ris = new CFrazione();
-            ris.den = this.num;
-            ris.num = this.den;
-            return ris;
+            int temp = this.den;
+            this.den = this.num;
+            this.num = temp;
         }
 
         public CFrazione Divisione(CFrazione f1) // da fare sull'oggetto
@@ -170,13 +182,11 @@ namespace FrazioniConsole {
             return ris;
         }
 
-        private CFrazione Semplifica() // da fare sull'oggetto
+        private void Semplifica() // da fare sull'oggetto
         {
-            CFrazione ris = new CFrazione();
             int temp = MCD(this.num, this.den);
-            ris.num = this.num / temp;
-            ris.den = this.den / temp;
-            return ris;
+            this.num = this.num / temp;
+            this.den = this.den / temp;
         }
 
         private static int MCD(int n1, int n2)
@@ -191,6 +201,27 @@ namespace FrazioniConsole {
                     n2 %= n1;
             }
             return n1 | n2;
+        }
+        public static CFrazione Potenza(CFrazione f, int esponente)
+        {
+            CFrazione ris = f;
+            if (esponente >= 0)
+            {
+                ris.num = (int)Math.Pow(f.num, esponente);
+                ris.den = (int)Math.Pow(f.den, esponente);
+            }
+            else if (esponente < 0)
+            {
+                ris.Inverti();
+                ris.num = (int)Math.Pow(f.num, Math.Abs(esponente));
+                ris.den = (int)Math.Pow(f.den, Math.Abs(esponente));
+            }
+            return ris;
+        }
+        public CFrazione Potenza(int esponente)
+        {
+            CFrazione ris = Potenza(this, esponente);
+            return ris;
         }
     }
 }
